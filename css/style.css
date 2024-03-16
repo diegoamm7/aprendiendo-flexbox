@@ -1,0 +1,80 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+#layout{
+    /*Empezamos a trabajar flexbox*/
+    /*display: inline-flex;  el contenedor se adapta al contenido que tiene adentro*/
+    /* direcciones de flex*/
+    /*flex-direction: column; se posicionan en columna*/
+
+    display: flex;/*combierte los elementos en flex uno al lado del otro, ocupa el ancho maximo de la caja que lo contiene osea el 100%*/
+    flex-direction: row;/*coloca los elementos en fila uno al lado del otro*/
+    
+    /*puede pasar que si tenemos muchos elementos se rompa y haga un scroll horizontal
+    para esto podemos solucionarlo asi:*/
+    /*WRAP le indicamos que no se sobre salgan y que se ordenen uno debajo del otro */
+    
+    flex-wrap: wrap;
+    /*tambien podemos utilizar el: flex-flow: row wrap;
+    que junta el row con el wrap y nos ahorramos de escribir las 2 lineas*/
+    border: 3px solid black;
+    /* con justify-content podemos alinear el contenido horizontalmente como querramos */
+    justify-content: space-around;
+    /* para alinear los elementos verticalmente el layout necesita una altura */
+    height: 600px;
+    /* align-items con esta propiedad podemos alinear verticalmente los elementos */
+    align-items: flex-start;
+}
+.caja{
+    /*la propiedad flex-grow no se utiliza en el layout se utiliza en el elemento hijo
+    nos permite adaptar el tamaño, el numero 1 indica que cada elemento ocupa el mismo espacio
+    se adapta se convierte completamente flexible y se adapta bien si reducimos el tamaño de la patalla
+    si queremos que algun elemento ocupe un tamaño mayor debemos darle directamente el flex-grow a ese elemento
+    tendria que ser un numero mayor ejemplo flex-grow: 2;*/
+    /* flex-grow: 1; */
+    /* flex-basis: calc(100% / 3 - 80px); aca realizamos este calculo que tambien se puede aplicar*/
+    /* flex-basis: calc(100% / 3 - 68px);
+    flex-grow: 1; */
+    /*SI combinamos el flex-grow con el flex-basis se vuelve mas responsive y se adapta mejor */
+    font-size: 20px;
+    flex-grow: 1;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border: 4px solid #222;
+    margin: 10px;
+    background: gray;
+
+}
+/* color a las cajas*/
+.red{
+    /*queremos que el elemento red sea un poco mas grande*/
+    /* flex-grow: 7; */
+    /*align-self sirve para posicional el elemento de forma vertical*/
+    align-self: flex-start;
+    background: red;
+}
+.green{
+    /* flex-grow: 7; */
+    align-self:center;
+    background: green;
+}
+.blue{
+
+    /*con el order puedo ordenar directamente las posiciones de las cajas
+    si quiero que un elemento este de primero pero los demas no tienen el order
+    tenemos que colocar order: -1; */
+    /*order: 3;*/
+    /* flex-shrink: 0; esta propiedad se usa para reducir el tamaño de una caja */
+    align-self:center;
+    background: blue;
+}
+.orange{
+    /* flex-grow: 7; */
+    /* flex-basis: 25% ; esta propiedad le damos a cada caja de un tamaño exacto que van a tener */
+    /* flex-basis: 100%; */
+    background: orange;
+    align-self: flex-end;
+}
